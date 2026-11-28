@@ -66,9 +66,22 @@ export function runChecks(week, rules, runDate) {
 }
 
 // ---------- inquiries ----------
+const esc = w => w.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+// Whole-word match; "word*" matches the start of a word; "$" or multi-word phrases match as written.
+export function wordHit(text, w) {
+  if (!/^[a-z* ]+$/.test(w)) return text.includes(w);
+  return w.endsWith("*") ? new RegExp(`\\b${esc(w.slice(0, -1))}`).test(text) : new RegExp(`\\b${esc(w)}\\b`).test(text);
+}
 export function classify(q, rules) {
   const t = q.text.toLowerCase();
-  for (const r of rules.never_draft) if (r.words.some(w => t.includes(w))) return { route: r };
+  // Gate A (Build 7): sensitive and money topics are routed before anything else, no draft.
+  for (const r of rules.never_draft) if (r.words.some(w => wordHit(t, w))) return { route: r };
+  // Gate B (Build 7): a person's name next to a family word ("my daughter Emma") is personal data.
+  if (rules.schedule_cues && /\bmy (son|daughter|child|kid|husband|wife|partner)\s+[A-Z][a-z]+/.test(q.text))
+    return { route: { route_to: "Director of Racquets", reason: "names a member or child", sensitive: true } };
+  // Gate C (Build 7): only draft what is recognisably a schedule question. Anything else goes to a person.
+  if (rules.schedule_cues && !rules.schedule_cues.some(c => t.includes(c)))
+    return { route: { route_to: "Director of Racquets", reason: "not a schedule question the routine knows how to answer" } };
   return { route: null };
 }
 

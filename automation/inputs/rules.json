@@ -1,18 +1,142 @@
 {
   "approver_role": "Director of Racquets",
   "freshness_days": 7,
-  "quiet_hours": {"start": "21:00", "end": "07:00"},
-  "member_email": {"slot": "Sun 17:00", "approve_by": "Sun 16:30", "fallback": "Mon 07:00"},
+  "quiet_hours": {
+    "start": "21:00",
+    "end": "07:00"
+  },
+  "member_email": {
+    "slot": "Sun 17:00",
+    "approve_by": "Sun 16:30",
+    "fallback": "Mon 07:00"
+  },
   "reply_within_hours": 24,
   "promised_days": {
-    "tennis": [0, 1, 2, 3, 4, 5, 6],
-    "pickleball": [0, 1, 2, 3, 4, 5],
-    "platform tennis": [1, 3, 6]
+    "tennis": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
+    "pickleball": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "platform tennis": [
+      1,
+      3,
+      6
+    ]
   },
-  "evening_words": ["social", "ladder", "league", "round robin"],
+  "evening_words": [
+    "social",
+    "ladder",
+    "league",
+    "round robin"
+  ],
   "never_draft": [
-    {"route_to": "Club office", "reason": "refunds, billing or charges", "words": ["refund", "billing", "bill", "charge"]},
-    {"route_to": "Pro shop", "reason": "sign-ups and roster changes", "words": ["sign up", "sign my", "enroll", "register", "roster"]},
-    {"route_to": "Director of Racquets", "reason": "injuries or complaints", "words": ["injur", "hurt", "complain"]}
-  ]
+    {
+      "route_to": "Director of Racquets",
+      "reason": "health, injury or personal details about a member or child",
+      "sensitive": true,
+      "words": [
+        "injur*",
+        "hurt",
+        "asthma*",
+        "inhaler*",
+        "allerg*",
+        "concussion*",
+        "medic*",
+        "diabet*",
+        "epilep*",
+        "seizure*",
+        "doctor",
+        "wheez*",
+        "pregnan*",
+        "surgery*",
+        "diagnos*",
+        "disab*",
+        "condition",
+        "sick"
+      ]
+    },
+    {
+      "route_to": "Club office",
+      "reason": "money: refunds, billing, payments or prices",
+      "words": [
+        "refund*",
+        "billing",
+        "bill",
+        "charge*",
+        "paid",
+        "pay*",
+        "payment",
+        "money",
+        "account",
+        "credit",
+        "card",
+        "price",
+        "cost",
+        "fee",
+        "free",
+        "discount",
+        "$"
+      ]
+    },
+    {
+      "route_to": "Pro shop",
+      "reason": "sign-ups and roster changes",
+      "words": [
+        "sign up",
+        "sign my",
+        "enroll*",
+        "register*",
+        "roster"
+      ]
+    },
+    {
+      "route_to": "Director of Racquets",
+      "reason": "complaints",
+      "words": [
+        "complain*",
+        "unhappy",
+        "rude"
+      ]
+    }
+  ],
+  "courts": {
+    "Tennis 1": "tennis",
+    "Tennis 2": "tennis",
+    "Tennis 3": "tennis",
+    "Pickleball 1": "pickleball",
+    "Pickleball 2": "pickleball",
+    "Pickleball 3": "pickleball",
+    "Pickleball 4": "pickleball",
+    "Platform 1": "platform tennis",
+    "Platform 2": "platform tennis"
+  },
+  "schedule_cues": [
+    "when",
+    "what time",
+    "is ",
+    "still on",
+    "still happening",
+    "start",
+    "schedule",
+    "which court",
+    "what is",
+    "try it",
+    "this week"
+  ],
+  "public_artifacts": {
+    "copy_question_text": false
+  },
+  "match_note": "Words match whole words only; a trailing * matches the start of a word (pay* matches pay, paying, payment). Added in Build 7 after 'card' matched 'Cardio Tennis'."
 }

@@ -1,0 +1,115 @@
+{
+  "run_date": "2026-11-29",
+  "mode": "weekly",
+  "week_of": "2026-11-30",
+  "summary": {
+    "sessions": 29,
+    "passed": 23,
+    "held": 6,
+    "drafts": 3,
+    "routed": 2
+  },
+  "held": [
+    {
+      "id": "S05",
+      "check": "Check 1",
+      "why": "overlaps Junior clinic on Tennis 1 by 60 minutes"
+    },
+    {
+      "id": "S06",
+      "check": "Check 1",
+      "why": "overlaps Adult clinic on Tennis 1 by 60 minutes"
+    },
+    {
+      "id": "S11",
+      "check": "Check 2",
+      "why": "Pickleball 3 is closed for construction this week"
+    },
+    {
+      "id": "S22",
+      "check": "Check 3",
+      "why": "last confirmed by the Director 12 days ago (limit 7)"
+    },
+    {
+      "id": "S28",
+      "check": "Check 5",
+      "why": "added 09:15 after the last approval"
+    },
+    {
+      "id": "S29",
+      "check": "Check 6",
+      "why": "Tennis 5 is not a court the club has"
+    }
+  ],
+  "gaps": [
+    {
+      "sport": "pickleball",
+      "day": 1
+    },
+    {
+      "sport": "pickleball",
+      "day": 2
+    }
+  ],
+  "guessed": [
+    "S18"
+  ],
+  "drafts": [
+    {
+      "id": "D-01",
+      "kind": "Weekly member email",
+      "to": "All racquets members (club email list)",
+      "subject": "This week on the courts: Nov 30–Dec 6",
+      "send_at": "Sun Nov 29, 5pm",
+      "why_time": "Sunday 5pm is the club's usual slot; only if approved by 4:30pm, otherwise Mon Nov 30, 7am.",
+      "body": "Hello from the racquets desk. Here is the week of Nov 30–Dec 6.\n\nMONDAY Nov 30\n7–8:30am  Early bird drill (Tennis, Tennis 1) · 3.0 and up\n10am–12pm  Open play (Pickleball, Pickleball 1) · All members\n4–5:30pm  Junior development (Tennis, Tennis 2) · Ages 8–15\n6:30–8pm  Men's doubles ladder (Tennis, Tennis 3) · Ladder field\n\nTUESDAY Dec 1\n4–5:30pm  Junior development (Tennis, Tennis 2) · Ages 8–15\n5:30–7pm  High school prep (Tennis, Tennis 3) · Ages 14–18\n6–8pm  League play (Platform tennis, Platform 1) · Club league\n\nWEDNESDAY Dec 2\n9–10:30am  Adult clinic 2.5–3.0 (Tennis, Tennis 1) · Developing\n4–5:30pm  Junior development (Tennis, Tennis 2) · Ages 8–15\n6:30–8pm  Women's doubles ladder (Tennis, Tennis 3) · Ladder field\n\nTHURSDAY Dec 3\n9–10:30am  Adult clinic (Tennis, Tennis 1) · 3.0 and up\n4–5:30pm  Junior development (Tennis, Tennis 2) · Ages 8–15\n6–7:30pm  Evening round robin (Pickleball, Pickleball 1) · All levels\n6–8pm  League play (Platform tennis, Platform 1) · Club league\n\nFRIDAY Dec 4\n9–10:30am  Adult clinic (Tennis, Tennis 1) · 3.0 and up\n10am–12pm  Open play (Pickleball, Pickleball 1) · All members\n4–5:30pm  Junior development (Tennis, Tennis 2) · Ages 8–15\n\nSATURDAY Dec 5\n9–10am  Beginner clinic (Pickleball, Pickleball 1) · New players\n9:30–11:30am  Saturday match play (Tennis, Tennis 1) · 3.5 and up\n11am–12:30pm  Junior match play (Tennis, Tennis 2) · Ages 10–16\n\nSUNDAY Dec 6\n9–11am  Sunday round robin (Platform tennis, Platform 2) · All members\n10–11:30am  Adult drill and play (Tennis, Tennis 3) · 3.0 and up\n\nCourts closed all week for construction: Pickleball 3 and Pickleball 4.\nNo pickleball is scheduled on Tuesday or Wednesday this week.\nA few sessions are still being confirmed and are not listed yet (7). The online calendar updates as soon as they are.\n\nSee you on the courts,\nThe racquets desk",
+      "fingerprint": "04314f1315d45983",
+      "status": "awaiting approval"
+    },
+    {
+      "id": "D-02",
+      "kind": "Court closure notice",
+      "to": "pickleball list",
+      "subject": "Pickleball 3 and Pickleball 4 closed this week",
+      "send_at": "Sun Nov 29, 6:30pm",
+      "why_time": "The evening before the first affected session, outside quiet hours.",
+      "body": "Hello,\n\nPickleball 3 and Pickleball 4 are closed all week (Nov 30–Dec 6) for construction. Pickleball sessions this week run on Pickleball 1 and 2 only. The full week is on the online calendar.\n\nThe racquets desk",
+      "fingerprint": "8a90d3c360c16cc8",
+      "status": "awaiting approval"
+    },
+    {
+      "id": "D-03",
+      "kind": "Inquiry reply",
+      "question": "P-1",
+      "question_text": null,
+      "to": "The member who asked (desk email)",
+      "subject": "Re: your question to the racquets desk",
+      "send_at": "Sun Nov 29, 2:45pm",
+      "why_time": "Replies go within 24 hours; the first slot after the run.",
+      "waits_on": [],
+      "body": "Hello,\n\nHere is what is on the calendar this week:\n  Saturday Dec 5, 11am–12:30pm: Junior match play, Tennis 2 (Ages 10–16)\n\nThe racquets desk",
+      "fingerprint": "44ee8cb6276e33af",
+      "status": "awaiting approval"
+    }
+  ],
+  "routed": [
+    {
+      "id": "D-04",
+      "question": "P-2",
+      "route_to": "Director of Racquets",
+      "reason": "no session on the calendar matches the question",
+      "text": "[not copied here: read P-2 in the desk mail tool]",
+      "sensitive": false,
+      "reply_by": "within 24 hours of receipt"
+    },
+    {
+      "id": "D-05",
+      "question": "P-3",
+      "route_to": "Director of Racquets",
+      "reason": "not a schedule question the routine knows how to answer",
+      "text": "[not copied here: read P-3 in the desk mail tool]",
+      "sensitive": false,
+      "reply_by": "within 24 hours of receipt"
+    }
+  ]
+}

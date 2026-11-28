@@ -53,11 +53,20 @@ for (const q of inquiries) {
   const id = `D-${String(n++).padStart(2, "0")}`;
   const c = classify(q, rules);
   if (c.route) {
-    routed.push({ id, question: q.id, route_to: c.route.route_to, reason: c.route.reason, text: c.handoff_text ?? q.text,
+    const keep = rules.public_artifacts?.copy_question_text !== false;
+    routed.push({ id, question: q.id, route_to: c.route.route_to, reason: c.route.reason,
+      text: keep ? q.text : `[not copied here: read ${q.id} in the desk mail tool]`, sensitive: !!c.route.sensitive,
       reply_by: "within 24 hours of receipt" });
     continue;
   }
   const hits = matchSessions(q.text, week.sessions);
+  // Gate D (Build 7): no checked session to cite means nothing true to say. A person answers instead of a holding draft.
+  if (rules.schedule_cues && !hits.length) {
+    routed.push({ id, question: q.id, route_to: "Director of Racquets", reason: "no session on the calendar matches the question",
+      text: rules.public_artifacts?.copy_question_text === false ? `[not copied here: read ${q.id} in the desk mail tool]` : q.text,
+      sensitive: false, reply_by: "within 24 hours of receipt" });
+    continue;
+  }
   const waiting = hits.filter(s => heldIds.has(s.id) || guessedIds.has(s.id));
   let body;
   if (waiting.length) {
@@ -72,7 +81,8 @@ for (const q of inquiries) {
   } else {
     body = `Hello,\n\nThanks for your note. I'm checking with the racquets team and will get back to you within 24 hours.\n\nThe racquets desk`;
   }
-  add({ id, kind: "Inquiry reply", question: q.id, question_text: q.text, to: `The member who asked (${q.channel})`,
+  const keepText = rules.public_artifacts?.copy_question_text !== false;
+  add({ id, kind: "Inquiry reply", question: q.id, question_text: keepText ? q.text : null, to: `The member who asked (${q.channel})`,
     subject: "Re: your question to the racquets desk", send_at: replyTime,
     why_time: "Replies go within 24 hours; the first slot after the run.", waits_on: waiting.map(s => s.id), body });
 }
@@ -86,7 +96,7 @@ writeFileSync(join(out, "drafts.json"), JSON.stringify(result, null, 2));
 let md = `# Drafts for the Director: ${runDate} (${mode})\n\nNothing here has been sent.\n\n`;
 md += `## Held (${held.length})\n` + held.map(h => `- ${h.id} — ${h.check}: ${h.why}`).join("\n") + "\n\n";
 for (const d of drafts) md += `## ${d.id} · ${d.kind}\nTo: ${d.to}\nSend: ${d.send_at}\nFingerprint: ${d.fingerprint}\n` +
-  (d.question_text ? `Question: "${d.question_text}"\n` : "") + (d.waits_on?.length ? `Waits on: ${d.waits_on.join(", ")}\n` : "") +
+  (d.question ? (d.question_text ? `Question: "${d.question_text}"\n` : `Question: ${d.question} (text stays in the desk mail tool)\n`) : "") + (d.waits_on?.length ? `Waits on: ${d.waits_on.join(", ")}\n` : "") +
   "\n```\n" + d.body + "\n```\n\n";
 for (const r of routed) md += `## ${r.id} · Routed to ${r.route_to}\nNot drafted (${r.reason}).\nQuestion: "${r.text}"\n\n`;
 writeFileSync(join(out, "drafts.md"), md);

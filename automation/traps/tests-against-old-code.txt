@@ -1,0 +1,16 @@
+ok 1 - B6-1 the Nov 30 week: 23/28 pass, the same five held, pickleball gap named
+ok 2 - B6-2 held sessions and the guessed time never reach the member email
+ok 3 - B6-3 the routine writes drafts only: no approvals, no outbox
+ok 4 - B6-4 refunds and sign-ups are routed, never drafted
+ok 5 - B6-5 with no approval, release blocks every draft
+ok 6 - B6-6 only the Director's role can approve
+ok 7 - B6-7 editing a draft after approval voids the approval
+ok 8 - B6-8 no email address or phone number appears in any output
+not ok 9 - B7-1 a money question with none of the old keywords goes to the Club office
+not ok 10 - B7-2 a child's name and health details are routed and appear in no artifact
+not ok 11 - B7-3 a price claim the club never made is not answered by the machine
+not ok 12 - B7-4 a session on a court the club does not have is held and kept out of the email
+ok 13 - B7-5 regression found in Build 7: 'Cardio Tennis' is not a money word
+not ok 14 - B7-6 no question text is copied into the pull request or review page
+# pass 9
+# fail 5
