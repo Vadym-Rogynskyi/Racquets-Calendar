@@ -1,0 +1,30 @@
+[
+  {
+    "id": "D-01",
+    "to": "All racquets members (club email list)",
+    "send_at": "Sun Nov 29, 5pm",
+    "approved_by": "Director of Racquets",
+    "reason": "Reads fine"
+  },
+  {
+    "id": "D-03",
+    "to": "The member who asked (desk email)",
+    "send_at": "Sun Nov 29, 2:45pm",
+    "approved_by": "Director of Racquets",
+    "reason": "Reads fine"
+  },
+  {
+    "id": "D-04",
+    "to": "The member who asked (desk email)",
+    "send_at": "Sun Nov 29, 2:45pm",
+    "approved_by": "Director of Racquets",
+    "reason": "Reads fine"
+  },
+  {
+    "id": "D-05",
+    "to": "The member who asked (desk email)",
+    "send_at": "Sun Nov 29, 2:45pm",
+    "approved_by": "Director of Racquets",
+    "reason": "Reads fine"
+  }
+]
